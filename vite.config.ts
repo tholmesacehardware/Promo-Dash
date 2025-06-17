@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig(({ mode }) => ({
-  base: "/Promo-Dash/", // ✅ This is essential for GitHub Pages
+  base: "/Promo-Dash/", // ✅ Essential for GitHub Pages
   server: {
     host: "::",
     port: 8080,
@@ -13,5 +13,8 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    sourcemap: true, // 🐞 Enable source maps for error tracing
   },
 }));
