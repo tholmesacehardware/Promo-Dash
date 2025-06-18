@@ -1,20 +1,14 @@
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig(({ mode }) => ({
-  base: "/Promo-Dash/", // ✅ Essential for GitHub Pages
-  server: {
-    host: "::",
-    port: 8080,
-  },
+export default defineConfig({
+  base: "/Promo-Dash/", // ← ensure this matches your repo name
   plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build: {
-    sourcemap: true, // 🐞 Enable source maps for error tracing
-  },
-}));
+});
