@@ -8,7 +8,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "vite build",
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -69,7 +71,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "^22.15.30",
+    "@types/node": "^22.15.32",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.5.0",
