@@ -62,17 +62,17 @@ export const MetricsTiles = () => {
         change="+12% from last month"
       />
       <MetricCard
-        title="Pending Approvals" // Changed title to match a likely real metric
+        title="Action Items" // Changed title to match a likely real metric
         value="87"
         change="+5% from last month"
       />
       <MetricCard
-        title="Completed Tasks" // Changed title to match a likely real metric
+        title="Action Items" // Changed title to match a likely real metric
         value="24"
         change="+18% from last month"
       />
       <MetricCard
-        title="Satisfaction Score" // Changed title to match a likely real metric
+        title="Action Items" // Changed title to match a likely real metric
         value="92%"
         change="+2% from last month"
       />

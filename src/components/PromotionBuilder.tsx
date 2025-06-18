@@ -229,8 +229,8 @@ const PromotionBuilder: React.FC<PromotionBuilderProps> = ({ isOpen, onClose }) 
             {currentStep === 5
               ? 'Continue to Review'
               : currentStep === totalSteps
-              ? 'Submit Promotion'
-              : 'Next'}
+                ? 'Submit Promotion'
+                : 'Next'}
           </Button>
         </Box>
       </Box>

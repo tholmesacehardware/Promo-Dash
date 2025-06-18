@@ -1,4 +1,5 @@
 // src/components/promotion-builder/Step2_BuyConditions.tsx
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -13,6 +14,7 @@ import {
   CardContent,
   IconButton,
   Switch,
+  Checkbox,
 } from '@mui/material';
 import { Plus, X as RemoveIcon, Edit2 } from 'lucide-react';
 import { DollarInput } from './DollarInput';
@@ -34,6 +36,8 @@ export interface BuyCondition {
   minQuantity: string;
   minSpend: string;
   requireAceRewards?: boolean;
+  couponRequired?: boolean;
+  couponCode?: string;
   skus: SkuWithPrice[];
   categories: any[];
   getOutcomes: any[];
@@ -174,10 +178,10 @@ export const Step2_BuyConditions: React.FC<Step2Props> = ({
             />
 
             <CardContent sx={{ p: 3 }}>
+              {/* Customer Must */}
               <Typography variant="body2" sx={{ fontWeight: 500, mb: 2 }}>
                 Customer Must:
               </Typography>
-
               <RadioGroup
                 value={c.type}
                 onChange={e =>
@@ -249,8 +253,8 @@ export const Step2_BuyConditions: React.FC<Step2Props> = ({
                 ))}
               </RadioGroup>
 
-              {/* New Toggle for Ace Rewards */}
-              <Box sx={{ mb: 3, display: 'flex', alignItems: 'center' }}>
+              {/* Require Ace Rewards */}
+              <Box sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
                 <FormControlLabel
                   control={
                     <Switch
@@ -265,6 +269,38 @@ export const Step2_BuyConditions: React.FC<Step2Props> = ({
                 />
               </Box>
 
+              {/* Coupon Required */}
+              <Box sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={c.couponRequired || false}
+                      onChange={(_, checked) =>
+                        updateBuyCondition(c.id, { couponRequired: checked })
+                      }
+                      size="small"
+                    />
+                  }
+                  label="Coupon Required"
+                />
+              </Box>
+
+              {/* Coupon ID Code */}
+              {c.couponRequired && (
+                <Box sx={{ mb: 3, width: 240 }}>
+                  <TextField
+                    fullWidth
+                    label="Coupon ID Code"
+                    value={c.couponCode || ''}
+                    onChange={e =>
+                      updateBuyCondition(c.id, { couponCode: e.target.value })
+                    }
+                    size="small"
+                  />
+                </Box>
+              )}
+
+              {/* Product Selector */}
               <Box>
                 <ProductSelector
                   skus={c.skus}
